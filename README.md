@@ -1,18 +1,23 @@
 # Remote
 
-To start your Phoenix server:
+A small test application built with Elixir and Phoenix.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+# Prerequisites and Setup
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Ensure you have Elixir 1.14.3 and Erlang/OTP 24 or higher on your system. Also ensure you have a Postgres server running at localhost:5432 with a default user (username: postgres, password: postgres) in place.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+To set up the application, run `mix setup` in the application's root directory. This will install dependencies and set up the database and seeds.
 
-## Learn more
+# Running the Application
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Start your server with `mix phx.server`, or start in interactive mode with `iex -S mix phx.server`.
+
+To generate a response from the API, visit <http://localhost:4000> in your browser, or put the following command in your terminal:
+
+`curl http://localhost:4000`
+
+Note that the list of returned users from the API will be empty until the first time the application refreshes the user point values, which happens every minute.
+
+# Testing
+
+Run `mix test` to see test output.
