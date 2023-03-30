@@ -17,9 +17,10 @@ defmodule Remote.Application do
       # Start Finch
       {Finch, name: Remote.Finch},
       # Start the Endpoint (http/https)
-      RemoteWeb.Endpoint
+      RemoteWeb.Endpoint,
       # Start a worker by calling: Remote.Worker.start_link(arg)
       # {Remote.Worker, arg}
+      Remote.UserServer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
