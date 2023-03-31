@@ -51,8 +51,15 @@ defmodule Remote.UserServer do
   defp update_database() do
     # Update every user's points in the database using a random number.
     # Uses `fragment/1` to directly update points, ensuring different random
-    # numbers for each user
-    update(User, set: [points: fragment("floor(random() * 100 + 1)")])
+    # numbers for each user, and updates the 'updated_at' timestamp
+    timestamp = NaiveDateTime.truncate(NaiveDateTime.utc_now(), :second)
+
+    update(User,
+      set: [
+        points: fragment("floor(random() * 100 + 1)"),
+        updated_at: ^timestamp
+      ]
+    )
     |> Repo.update_all([])
   end
 
